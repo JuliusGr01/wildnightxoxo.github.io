@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYE Timeline & Fate</title>
+    <title>Silvester Zeitstrahl & Schicksale</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a1a; color: white; padding: 40px; }
-        h1 { text-align: center; color: #ff4d4d; }
+        h1 { text-align: center; color: #ff4d4d; margin-bottom: 10px; }
+        h2 { text-align: center; font-weight: 300; color: #ccc; margin-bottom: 50px; }
         
         /* Timeline Styling */
         .timeline { max-width: 800px; margin: 40px auto; border-left: 4px solid #ff4d4d; padding-left: 20px; }
-        .event { margin-bottom: 25px; position: relative; }
+        .event { margin-bottom: 25px; position: relative; line-height: 1.6; }
         .event::before { content: ''; position: absolute; left: -28px; top: 5px; width: 12px; height: 12px; background: #ff4d4d; border-radius: 50%; }
         .time { font-weight: bold; color: #ff4d4d; margin-right: 10px; }
 
@@ -19,23 +20,25 @@
         .flip-card { background-color: transparent; width: 250px; height: 350px; perspective: 1000px; }
         .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
         .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
-        .front, .back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 15px; overflow: hidden; }
+        .front, .back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
         .front img { width: 100%; height: 100%; object-fit: cover; }
-        .back { background-color: #ff4d4d; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; transform: rotateY(180deg); }
-        .name { font-weight: bold; font-size: 1.2em; margin-bottom: 10px; }
+        .back { background-color: #ff4d4d; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; transform: rotateY(180deg); box-sizing: border-box; }
+        .name { font-weight: bold; font-size: 1.3em; margin-bottom: 15px; border-bottom: 2px solid white; padding-bottom: 5px; }
+        .fate-text { font-size: 1em; font-style: italic; }
     </style>
 </head>
 <body>
 
-    <h1>Our New Year's Eve Plan</h1>
+    <h1>Unser Silvester-Abend</h1>
+    <h2>Wer wird wie enden?</h2>
 
     <div class="timeline">
-        <div class="event"><span class="time">17:00</span> Greet at Simone and Hanna's with cool hand-shakes.</div>
-        <div class="event"><span class="time">17:15 - 18:15</span> Prepare food for Raclette.</div>
-        <div class="event"><span class="time">18:30 - 20:00</span> Eat raclette and admire Big-G's humor.</div>
-        <div class="event"><span class="time">20:15 - 23:00</span> Boardgames: Seuthorg Mot behaves incredibly arrogant.</div>
-        <div class="event"><span class="time">23:30 - 00:30</span> Head out for random celebrations.</div>
-        <div class="event"><span class="time">00:30 - End</span> Back to the dance floor or staying out!</div>
+        <div class="event"><span class="time">17:00</span> Ankunft bei Simone Sweetboy und Hanna Art-Swift. Begrüßung mit coolen Handshakes.</div>
+        <div class="event"><span class="time">17:15 - 18:15</span> Gemeinsame Vorbereitung des Raclettes.</div>
+        <div class="event"><span class="time">18:30 - 20:00</span> Raclette-Essen: Alle bewundern, wie lustig Big-G. heute wieder ist.</div>
+        <div class="event"><span class="time">20:15 - 23:00</span> Spieleabend: Seuthorg Mot verhält sich unglaublich arrogant bei jedem guten Blatt.</div>
+        <div class="event"><span class="time">23:30 - 00:30</span> Aufbruch zur Neujahrsfeier an einem zufälligen Ort.</div>
+        <div class="event"><span class="time">00:30 - Open End</span> Rückkehr zu Simone und Hanna oder draußen weiterfeiern.</div>
     </div>
 
     <div class="character-container">
@@ -44,7 +47,7 @@
                 <div class="front"><img src="IMG_4093.jpg" alt="Seuthorg Mot"></div>
                 <div class="back">
                     <div class="name">Seuthorg Mot</div>
-                    <p>Will lose a bet during boardgames and have to carry everyone's jackets home.</p>
+                    <p class="fate-text">Wird am Ende des Abends behaupten, er habe das Raclette im Alleingang erfunden.</p>
                 </div>
             </div>
         </div>
@@ -54,7 +57,7 @@
                 <div class="front"><img src="408a6c02-bc69-499a-a4cc-356a2fdc7943.jpg" alt="Iklas McStrong"></div>
                 <div class="back">
                     <div class="name">Iklas McStrong</div>
-                    <p>Will be the MVP of the random celebration and find a new best friend on the street.</p>
+                    <p class="fate-text">Wird um 3 Uhr morgens Liegestütze machen, um seine Stärke zu beweisen.</p>
                 </div>
             </div>
         </div>
@@ -64,7 +67,7 @@
                 <div class="front"><img src="f0ccbd3f-9d79-4163-b1d4-99448184f3db.jpg" alt="Simone Sweetboy"></div>
                 <div class="back">
                     <div class="name">Simone Sweetboy</div>
-                    <p>Will accidentally lead a 20-person conga line through the living room at 2 AM.</p>
+                    <p class="fate-text">Wird mit Hanna die Tanzfläche so sehr dominieren, dass alle anderen ehrfürchtig zuschauen.</p>
                 </div>
             </div>
         </div>
@@ -74,7 +77,7 @@
                 <div class="front"><img src="3284df43-c109-41ec-8f01-6cd28617567f.jpg" alt="Big-G."></div>
                 <div class="back">
                     <div class="name">Big-G.</div>
-                    <p>Will still be telling jokes while everyone else is asleep on the sofa.</p>
+                    <p class="fate-text">Wird vor Lachen sein Pfännchen fallen lassen, aber dabei immer noch den besten Witz des Jahres reißen.</p>
                 </div>
             </div>
         </div>
@@ -84,7 +87,7 @@
                 <div class="front"><img src="31ba0f61-b8ed-4939-84b6-ee7ca0d62c58.JPG" alt="Jolanda McHealth"></div>
                 <div class="back">
                     <div class="name">Jolanda McHealth</div>
-                    <p>Will be the only one who remembers to drink water and feels great tomorrow.</p>
+                    <p class="fate-text">Wird versuchen, den Tequila durch Ingwer-Shots zu ersetzen.</p>
                 </div>
             </div>
         </div>
@@ -94,7 +97,7 @@
                 <div class="front"><img src="IMG_4030.jpg" alt="Anna McHealth"></div>
                 <div class="back">
                     <div class="name">Anna McHealth</div>
-                    <p>Will try to organize a 3 AM workout that nobody else joins.</p>
+                    <p class="fate-text">Wird beim Tanzen Kalorien zählen und dabei trotzdem die meiste Energie haben.</p>
                 </div>
             </div>
         </div>
@@ -104,7 +107,7 @@
                 <div class="front"><img src="IMG_3973.jpg" alt="Hanna Art-Swift"></div>
                 <div class="back">
                     <div class="name">Hanna Art-Swift</div>
-                    <p>Will do a crazy dance move so intense she accidentally breaks a vase.</p>
+                    <p class="fate-text">Wird Simone mit einem "Crazy Move" aus Versehen vom Sofa fegen.</p>
                 </div>
             </div>
         </div>
