@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;800&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a0a;
+            --bg: #1a1a1a;
             --fg: #ffffff;
-            --accent: #404040;
+            --accent: #ff4d4d; /* Back to the vibrant red */
             --font-main: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
@@ -21,12 +21,10 @@
             margin: 0;
             padding: 6vw;
             line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Minimal Header */
         header {
-            border-bottom: 1px solid var(--accent);
+            border-bottom: 1px solid #333;
             padding-bottom: 40px;
             margin-bottom: 80px;
         }
@@ -38,23 +36,23 @@
             letter-spacing: -0.05em;
             margin: 0;
             line-height: 0.9;
+            color: var(--accent);
         }
 
         .subtitle {
             font-family: var(--font-mono);
             font-size: 0.9rem;
-            color: #888;
+            color: #ccc;
             margin-top: 20px;
             text-transform: uppercase;
         }
 
-        /* Timeline Section */
         .section-label {
             font-family: var(--font-mono);
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            color: #555;
+            color: #888;
             margin-bottom: 40px;
             display: block;
         }
@@ -68,37 +66,38 @@
             display: grid;
             grid-template-columns: 120px 1fr;
             padding: 25px 0;
-            border-bottom: 1px solid #1a1a1a;
-            transition: color 0.3s ease;
+            border-bottom: 1px solid #333;
         }
-
-        .event:hover { color: #888; }
 
         .time { 
             font-family: var(--font-mono);
             font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: bold;
         }
 
-        /* Character Grid */
+        /* --- Restore Original Card Flip Style --- */
         .character-container { 
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2px; /* Fine lines between cards */
-            background: #1a1a1a; /* Line color */
-            border: 1px solid #1a1a1a;
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 25px; 
+            margin-top: 60px; 
         }
 
         .flip-card { 
-            background-color: var(--bg);
-            aspect-ratio: 3 / 4;
-            perspective: 1000px;
+            background-color: transparent; 
+            width: 280px; 
+            height: 380px; 
+            perspective: 1000px; 
         }
 
         .flip-card-inner { 
             position: relative; 
             width: 100%; 
             height: 100%; 
-            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); 
+            text-align: center; 
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
             transform-style: preserve-3d; 
         }
 
@@ -110,54 +109,54 @@
             height: 100%; 
             -webkit-backface-visibility: hidden; 
             backface-visibility: hidden; 
+            border-radius: 15px; 
             overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .front img, .back img { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover;
-            filter: grayscale(100%) contrast(1.1);
-            transition: filter 0.5s ease;
+            object-fit: cover; 
         }
 
-        .flip-card:hover .front img { filter: grayscale(0%); }
-
         .back { 
-            background-color: #f0f0f0; 
-            color: #000; 
+            background-color: var(--accent); 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            padding: 30px; 
             transform: rotateY(180deg); 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 40px;
-            box-sizing: border-box;
+            box-sizing: border-box; 
         }
 
         .name { 
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            letter-spacing: 0.1em;
+            font-weight: bold; 
+            font-size: 1.3em; 
+            margin-bottom: 15px; 
+            border-bottom: 2px solid white; 
+            padding-bottom: 5px;
+            font-family: var(--font-main);
         }
 
         .fate-text { 
-            font-size: 1.4rem; 
-            font-weight: 300;
-            line-height: 1.3;
+            font-size: 1.1rem; 
+            font-style: italic; 
+            line-height: 1.4;
         }
 
         @media (max-width: 768px) {
             .event { grid-template-columns: 1fr; gap: 10px; }
-            body { padding: 20px; }
+            body { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <span class="section-label">NYE // 2025</span>
+        <span class="section-label">SILVESTER // 2025</span>
         <h1>RAMBOZAMBO.</h1>
         <div class="subtitle">Wieso chillig wenn wir doch auch eskalieren könnten?</div>
     </header>
@@ -172,7 +171,7 @@
         <div class="event"><div class="time">00:30</div> <div>Open End. Drinnen tanzen oder draußen untergehen.</div></div>
     </div>
 
-    <span class="section-label">Die Protagonisten // Hover to reveal fate</span>
+    <span class="section-label">Die Protagonisten // Hover to flip</span>
     
     <div class="character-container">
         <div class="flip-card">
@@ -189,10 +188,13 @@
             </div>
         </div>
 
-                <div class="flip-card">
+        <div class="flip-card">
             <div class="flip-card-inner">
-                <div class="front"><img src="Simon.png" alt="Simone Sweetboy"></div>
-                <div class="back" style="padding: 0;"><img src="Simon_ruck.png" alt="Simone Sweetboys Schicksal"></div>
+                <div class="front"><img src="Simon.png" alt="Simone"></div>
+                <div class="back">
+                    <div class="name">Simone Sweetboy</div>
+                    <p class="fate-text">Wird mit Hanna die Tanzfläche so sehr dominieren, dass alle anderen ehrfürchtig zuschauen.</p>
+                </div>
             </div>
         </div>
 
