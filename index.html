@@ -9,7 +9,7 @@
         :root {
             --bg: #1a1a1a;
             --fg: #ffffff;
-            --accent: #ff4d4d; /* Back to the vibrant red */
+            --accent: #ff4d4d;
             --font-main: 'Inter', sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
@@ -76,13 +76,19 @@
             font-weight: bold;
         }
 
-        /* --- Restore Original Card Flip Style --- */
         .character-container { 
             display: flex; 
             flex-wrap: wrap; 
             justify-content: center; 
-            gap: 25px; 
+            gap: 40px 25px; /* Mehr Platz nach unten für die Beschriftung */
             margin-top: 60px; 
+        }
+
+        /* Wrapper für Karte + Beschriftung */
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .flip-card { 
@@ -147,6 +153,16 @@
             line-height: 1.4;
         }
 
+        /* Stylische Beschriftung unter der Karte */
+        .card-label {
+            margin-top: 15px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #aaa;
+            letter-spacing: 0.1em;
+        }
+
         @media (max-width: 768px) {
             .event { grid-template-columns: 1fr; gap: 10px; }
             body { padding: 30px; }
@@ -166,68 +182,91 @@
         <div class="event"><div class="time">17:00</div> <div>Ankunft. Simone Sweetboy und Hanna Swift-Art laden ein. Begrüßung mit improvisierten Handshakes, herzlichen Umarmungen und Schmuseleien.</div></div>
         <div class="event"><div class="time">17:15</div> <div>Geschnippeling. Gemeinsame Vorbereitung des Raclettes.</div></div>
         <div class="event"><div class="time">18:30</div> <div>Raclette-Essen. Münder zu, auch wenn Niklas wieder Muskeln auspackt, Sabbern ist ok.</div></div>
-        <div class="event"><div class="time">20:15</div> <div>Endlich Spaß haben. Iklas genevert von Seuhtorg Mot. Julius genervt von Iklas. Mot ist glücklich. Alle anderen auch.</div></div>
-        <div class="event"><div class="time">23:30</div> <div>Aufbruch. Ein Spießrutenlauf zwischen Böllern, abgesprängten Händen und offenen Köpfen. Können wir das riskieren? Ja, zwei Medizinerinnen im Gepäck! Anna & Jolanda McHealth.</div></div>
+        <div class="event"><div class="time">20:15</div> <div>Endlich Spaß haben. Iklas genervt von Seuhtorg Mot. Julius genervt von Iklas. Mot ist glücklich. Alle anderen auch.</div></div>
+        <div class="event"><div class="time">23:30</div> <div>Aufbruch. Ein Spießrutenlauf zwischen Böllern, abgesprengten Händen und offenen Köpfen. Können wir das riskieren? Ja, zwei Medizinerinnen im Gepäck! Anna & Jolanda McHealth.</div></div>
         <div class="event"><div class="time">00:30</div> <div>Open End. Drinnen tanzen oder draußen untergehen.</div></div>
     </div>
 
     <span class="section-label">Die Protagonisten: Wie wird die Nacht enden? // Berührt die Bilder! </span>
     
     <div class="character-container">
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="front"><img src="Tom.PNG" alt="Mot"></div>
-                <div class="back" style="padding: 0;"><img src="Tom_ruck.jpeg" alt="Mot Schicksal"></div>
-            </div>
-        </div>
-
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="front"><img src="Niklas.png" alt="Niklas"></div>
-                <div class="back" style="padding: 0;"><img src="Niklas_ruck.png" alt="Niklas Schicksal"></div>
-            </div>
-        </div>
-
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="front"><img src="Simon.png" alt="Simone"></div>
-                <div class="back">
-                    <div class="name">Simone Sweetboy</div>
-                    <p class="fate-text">Wird mit Hanna die Tanzfläche so sehr dominieren, dass alle anderen ehrfürchtig zuschauen.</p>
+        
+        <div class="card-wrapper">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="front"><img src="Tom.PNG" alt="Mot"></div>
+                    <div class="back" style="padding: 0;"><img src="Tom_ruck.jpeg" alt="Mot Schicksal"></div>
                 </div>
             </div>
+            <div class="card-label">Seuhtorg Mot</div>
         </div>
 
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="front"><img src="Julius.png" alt="Julius"></div>
-                <div class="back" style="padding: 0;"><img src="Julius_ruck.png" alt="Julius Schicksal"></div>
+        <div class="card-wrapper">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="front"><img src="Niklas.png" alt="Niklas"></div>
+                    <div class="back" style="padding: 0;"><img src="Niklas_ruck.png" alt="Niklas Schicksal"></div>
+                </div>
             </div>
+            <div class="card-label">Iklas McStrong</div>
         </div>
 
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="front"><img src="Jolanda.png" alt="Jolanda"></div>
-                <div class="back" style="padding: 0;"><img src="Jolanda_ruck.png" alt="Jolanda Schicksal"></div>
+        <div class="card-wrapper">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="front"><img src="Simon.png" alt="Simone"></div>
+                    <div class="back">
+                        <div class="name">Simone Sweetboy</div>
+                        <p class="fate-text">Wird mit Hanna die Tanzfläche dominieren.</p>
+                    </div>
+                </div>
             </div>
+            <div class="card-label">Simone Sweetboy</div>
+        </div>
+
+        <div class="card-wrapper">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="front"><img src="Julius.png" alt="Julius"></div>
+                    <div class="back" style="padding: 0;"><img src="Julius_ruck.png" alt="Julius Schicksal"></div>
+                </div>
+            </div>
+            <div class="card-label">Big-G.</div>
+        </div>
+
+        <div class="card-wrapper">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="front"><img src="Jolanda.png" alt="Jolanda"></div>
+                    <div class="back" style="padding: 0;"><img src="Jolanda_ruck.png" alt="Jolanda Schicksal"></div>
+                </div>
+            </div>
+            <div class="card-label">Jolanda McHealth</div>
         </div>
     
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="front"><img src="Anna.png" alt="Anna"></div>
-                <div class="back" style="padding: 0;"><img src="Anna_ruck.png" alt="Anna Schicksal"></div>
-            </div>
-        </div>
-
-        <div class="flip-card">
-            <div class="flip-card-inner">
-                <div class="front"><img src="Hanna.png" alt="Hanna"></div>
-                <div class="back">
-                    <div class="name">Hanna Art-Swift</div>
-                    <p class="fate-text">Fegt Simone mit einem Move vom Sofa. Kunst oder Gewalt? Man weiß es nicht.</p>
+        <div class="card-wrapper">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="front"><img src="Anna.png" alt="Anna"></div>
+                    <div class="back" style="padding: 0;"><img src="Anna_ruck.png" alt="Anna Schicksal"></div>
                 </div>
             </div>
+            <div class="card-label">Anna McHealth</div>
         </div>
+
+        <div class="card-wrapper">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="front"><img src="Hanna.png" alt="Hanna"></div>
+                    <div class="back">
+                        <div class="name">Hanna Art-Swift</div>
+                        <p class="fate-text">Fegt Simone vom Sofa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-label">Hanna Art-Swift</div>
+        </div>
+
     </div>
 
 </body>
