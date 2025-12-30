@@ -80,15 +80,16 @@
             display: flex; 
             flex-wrap: wrap; 
             justify-content: center; 
-            gap: 40px 25px; /* Mehr Platz nach unten für die Beschriftung */
+            align-items: flex-start; /* Stellt sicher, dass alle Karten oben bündig sind */
+            gap: 50px 30px; 
             margin-top: 60px; 
         }
 
-        /* Wrapper für Karte + Beschriftung */
         .card-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 280px; /* Gleiche Breite wie die Karte für perfekte Zentrierung */
         }
 
         .flip-card { 
@@ -102,7 +103,6 @@
             position: relative; 
             width: 100%; 
             height: 100%; 
-            text-align: center; 
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
             transform-style: preserve-3d; 
         }
@@ -113,8 +113,8 @@
             position: absolute; 
             width: 100%; 
             height: 100%; 
-            -webkit-backface-visibility: hidden; 
             backface-visibility: hidden; 
+            -webkit-backface-visibility: hidden;
             border-radius: 15px; 
             overflow: hidden; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -128,39 +128,20 @@
 
         .back { 
             background-color: var(--accent); 
-            color: white; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            padding: 30px; 
             transform: rotateY(180deg); 
-            box-sizing: border-box; 
         }
 
-        .name { 
-            font-weight: bold; 
-            font-size: 1.3em; 
-            margin-bottom: 15px; 
-            border-bottom: 2px solid white; 
-            padding-bottom: 5px;
-            font-family: var(--font-main);
-        }
-
-        .fate-text { 
-            font-size: 1.1rem; 
-            font-style: italic; 
-            line-height: 1.4;
-        }
-
-        /* Stylische Beschriftung unter der Karte */
         .card-label {
-            margin-top: 15px;
+            margin-top: 20px;
             font-family: var(--font-mono);
             font-size: 0.75rem;
             text-transform: uppercase;
             color: #aaa;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
+            text-align: center;
+            width: 100%;
+            line-height: 1.4;
+            word-wrap: break-word; /* Erzwingt Umbrüche bei langen Wörtern */
         }
 
         @media (max-width: 768px) {
@@ -178,16 +159,16 @@
     </header>
 
     <div class="timeline">
-        <span class="section-label">Der Ablauf (spontane Änderungen möglich) </span>
+        <span class="section-label">Der Ablauf (spontane Änderungen möglich)</span>
         <div class="event"><div class="time">17:00</div> <div>Ankunft. Simone und Hanna laden ein. Begrüßung mit improvisierten Handshakes, herzlichen Umarmungen und Schmuseleien.</div></div>
         <div class="event"><div class="time">17:15</div> <div>Geschnippeling. Gemeinsame Vorbereitung des Raclettes.</div></div>
         <div class="event"><div class="time">18:30</div> <div>Raclette-Essen. Münder zu, auch wenn Iklas wieder Muskeln auspackt, Sabbern ist ok.</div></div>
         <div class="event"><div class="time">20:15</div> <div>Endlich Spaß haben. Iklas genervt von Seuhtorg Mot. Julius genervt von Iklas. Mot ist glücklich. Alle anderen auch.</div></div>
-        <div class="event"><div class="time">23:30</div> <div>Aufbruch. Ein Spießrutenlauf zwischen Böllern, abgesprengten Händen und offenen Köpfen. Können wir das riskieren? Ja, zwei Medizinerinnen im Gepäck! Anna & Jolanda McHealth.</div></div>
+        <div class="event"><div class="time">23:30</div> <div>Aufbruch. Ein Spießrutenlauf zwischen Böllern und Raketen. Anna & Jolanda McHealth sichern uns ab.</div></div>
         <div class="event"><div class="time">00:30</div> <div>Open End. Drinnen tanzen oder draußen untergehen.</div></div>
     </div>
 
-    <span class="section-label">Die Protagonisten: Wie wird die Nacht enden? // Berührt die Bilder! </span>
+    <span class="section-label">Die Protagonisten // Berührt die Bilder!</span>
     
     <div class="character-container">
         
@@ -195,7 +176,7 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="front"><img src="Tom_ruck.jpeg" alt="Mot"></div>
-                    <div class="back" style="padding: 0;"><img src="Tom_ruck.JPG" alt="Mot Schicksal"></div>
+                    <div class="back"><img src="Tom_ruck.JPG" alt="Mot Schicksal"></div>
                 </div>
             </div>
             <div class="card-label">Seuhtorg Mot: Wird jedes Spiel verlieren</div>
@@ -205,7 +186,7 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="front"><img src="Niklas.png" alt="Niklas"></div>
-                    <div class="back" style="padding: 0;"><img src="Niklas_ruck.png" alt="Niklas Schicksal"></div>
+                    <div class="back"><img src="Niklas_ruck.png" alt="Niklas Schicksal"></div>
                 </div>
             </div>
             <div class="card-label">Iklas: Endet wie an jedem anderen Abend auch</div>
@@ -215,7 +196,7 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="front"><img src="Simon.png" alt="Simone"></div>
-                   <div class="back" style="padding: 0;"><img src="Simon_ruck.JPG" alt="Mot Schicksal"></div>
+                    <div class="back"><img src="Simon_ruck.JPG" alt="Simone Schicksal"></div>
                 </div>
             </div>
             <div class="card-label">Simone: "Chickened-out" weil zu viel backlash auf rage bait</div>
@@ -225,7 +206,7 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="front"><img src="Julius.png" alt="Julius"></div>
-                    <div class="back" style="padding: 0;"><img src="Julius_ruck.png" alt="Julius Schicksal"></div>
+                    <div class="back"><img src="Julius_ruck.png" alt="Julius Schicksal"></div>
                 </div>
             </div>
             <div class="card-label">Big-G.: Verliert den Abend, gewinnt die Nacht.</div>
@@ -235,7 +216,7 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="front"><img src="Jolanda.png" alt="Jolanda"></div>
-                    <div class="back" style="padding: 0;"><img src="Jolanda_ruck.png" alt="Jolanda Schicksal"></div>
+                    <div class="back"><img src="Jolanda_ruck.png" alt="Jolanda Schicksal"></div>
                 </div>
             </div>
             <div class="card-label">Jolanda: Schließt vorzeitig Medizinstudium ab. Arbeitet trotzdem erst einmal bei McD.</div>
@@ -245,21 +226,20 @@
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="front"><img src="Anna.png" alt="Anna"></div>
-                    <div class="back" style="padding: 0;"><img src="Anna_ruck.JPG" alt="Anna Schicksal"></div>
+                    <div class="back"><img src="Anna_ruck.JPG" alt="Anna Schicksal"></div>
                 </div>
             </div>
-            <div class="card-label">Anna: </div>
+            <div class="card-label">Anna: Die Ruhe selbst</div>
         </div>
-
 
         <div class="card-wrapper">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="front"><img src="Hanna.png" alt="Hanna"></div>
-                    <div class="back" style="padding: 0;"><img src="Hanna_ruck.JPG" alt="Hanna Schicksal"></div>
+                    <div class="back"><img src="Hanna_ruck.JPG" alt="Hanna Schicksal"></div>
                 </div>
             </div>
-            <div class="card-label">Hanna: </div>
+            <div class="card-label">Hanna: Bereit für den Crazy Move</div>
         </div>
 
     </div>
